@@ -1,7 +1,18 @@
-# Vue 3 + Vite
+# Vue 3 + Vite + Jest
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## cli error
 
-## Recommended IDE Setup
+> ReferenceError: module is not defined in ES module scope
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+This file is being treated as an ES module because it has a '.js' file extension and '/Usersxxxxx/xxxxx/projects-practice/vue-test/package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+
+    at file:///Usersxxxxx/xxxxx/projects-practice/vue-test/jest.config.js:1:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:194:25)
+
+* jest.config.js → jest.config.cjs
+
+> You appear to be using a native ECMAScript module configuration file, which is only supported when running Babel asynchronously.
+
+        at /Users/xxxxx/projects-practice/vue-test/babel.config.js
+
+* babel.config.js → babel.config.cjs
