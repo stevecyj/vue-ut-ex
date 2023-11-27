@@ -12,6 +12,10 @@ module.exports = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
+  snapshotSerializers: ["jest-serializer-vue"],
+  testEnvironmentOptions: {
+    url: "http://localhost/",
+  },
   coveragePathIgnorePatterns: ["/node_modules/", "/tests/"],
   coverageReporters: ["text", "json-summary"],
   // Fix in order for vue-test-utils to work with Jest 29
