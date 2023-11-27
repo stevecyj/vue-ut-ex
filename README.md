@@ -19,13 +19,13 @@ This file is being treated as an ES module because it has a '.js' file extension
 
 ## jest.config.cjs
 
-packages
+### packages
 
 ```bash
 npm i -D babel-jest @vue/vue3-jest jest-transform-stub jest-serializer-vue
 ```
 
-config
+### jest.config.cjs
 
 ```js
 module.exports = {
