@@ -1,12 +1,9 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
+import TodoList from "@/containers/TodoList/TodoList.vue";
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank"> </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <TodoList />
 </template>
 
 <style scoped></style>
