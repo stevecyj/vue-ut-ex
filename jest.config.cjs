@@ -6,6 +6,7 @@ module.exports = {
     "^.+\\.(css|less|scss|sass|style|svg|png|jpe?g|ttf|woff2?)$":
       "jest-transform-stub",
   },
+  transformIgnorePatterns: ["/node_modules/"],
   testRegex: "(/__tests__/.*|(.|/)(test|spec)).(js|ts)$",
   moduleFileExtensions: ["vue", "js"],
   moduleNameMapper: {
