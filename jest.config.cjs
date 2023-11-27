@@ -3,6 +3,8 @@ module.exports = {
   transform: {
     "^.+.vue$": "@vue/vue3-jest",
     "^.+js$": "babel-jest",
+    "^.+\\.(css|less|scss|sass|style|svg|png|jpe?g|ttf|woff2?)$":
+      "jest-transform-stub",
   },
   testRegex: "(/__tests__/.*|(.|/)(test|spec)).(js|ts)$",
   moduleFileExtensions: ["vue", "js"],
