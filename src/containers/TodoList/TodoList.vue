@@ -12,7 +12,6 @@ const addUndoItem = (inputValue) => {
 </script>
 
 <template>
-  <h1 class="mmm nnn">TodoList</h1>
   <Header @add="addUndoItem" />
   <ul>
     <li v-for="(item, index) in undoList" :key="index">
@@ -21,4 +20,4 @@ const addUndoItem = (inputValue) => {
   </ul>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

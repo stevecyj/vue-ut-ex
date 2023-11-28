@@ -17,13 +17,39 @@ const addTodoItem = () => {
 
 <template>
   <div class="header">
-    <input
-      type="text"
-      data-test="input"
-      v-model="inputValue"
-      @keyup.enter="addTodoItem"
-    />
+    <div class="header-content">
+      TodoList
+      <input
+        class="header-input"
+        type="text"
+        data-test="input"
+        v-model="inputValue"
+        @keyup.enter="addTodoItem"
+        placeholder="Please input your todo item !"
+      />
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.header {
+  line-height: 60px;
+  background: #333;
+  color: #fff;
+  font-size: 24px;
+
+  &-content {
+    width: 600px;
+    margin: 0 auto;
+  }
+  &-input {
+    float: right;
+    width: 360px;
+    margin-top: 16px;
+    line-height: 24px;
+    outline: none;
+    color: #333;
+    text-indent: 10px;
+  }
+}
+</style>
