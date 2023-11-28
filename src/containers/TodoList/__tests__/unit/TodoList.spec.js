@@ -5,5 +5,6 @@ import { shallowMount } from "@vue/test-utils";
 describe("TodoList", () => {
   it("renders properly", () => {
     const wrapper = shallowMount(TodoList);
+    expect(wrapper.findAll(".mmm").length).toBe(1);
   });
 });
