@@ -16,7 +16,7 @@ const addTodoItem = () => {
 </script>
 
 <template>
-  <div>
+  <div class="header">
     <input
       type="text"
       data-test="input"
