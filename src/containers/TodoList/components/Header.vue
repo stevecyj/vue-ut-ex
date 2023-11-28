@@ -11,6 +11,7 @@ const addTodoItem = () => {
   if (!inputValue.value) return;
   console.log("addTodoItem");
   emit("add", inputValue);
+  inputValue.value = "";
 };
 </script>
 

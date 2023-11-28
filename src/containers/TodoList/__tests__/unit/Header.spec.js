@@ -31,10 +31,11 @@ it("Header input 框輸入 enter，無內容時無反應", () => {
   expect(wrapper.emitted().add).toBeFalsy();
 });
 
-it("Header input 框輸入 enter，有內容時向外觸發事件", () => {
+it("Header input 框輸入 enter，有內容時向外觸發事件，同時清空 inputValue", () => {
   const wrapper = shallowMount(Header);
   const input = wrapper.find('[data-test="input"]');
   input.setValue("123");
   input.trigger("keyup.enter");
   expect(wrapper.emitted().add).toBeTruthy();
+  expect(wrapper.vm.inputValue).toBe("");
 });
