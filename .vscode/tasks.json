@@ -8,6 +8,12 @@
       "type": "npm",
       "script": "test:unit",
       "problemMatcher": []
+    },
+    {
+      "label": "npm run jest -u",
+      "type": "npm",
+      "script": "test:update",
+      "problemMatcher": []
     }
   ]
 }
