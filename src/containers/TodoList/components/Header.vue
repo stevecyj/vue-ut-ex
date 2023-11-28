@@ -1,15 +1,27 @@
 <script setup>
-import { ref } from "vue";
+import { ref, defineEmits } from "vue";
 
 defineProps({});
 const inputValue = ref("");
-
 const count = ref(0);
+const emit = defineEmits(["add"]);
+
+const addTodoItem = () => {
+  // emit add event with inputValue
+  if (!inputValue.value) return;
+  console.log("addTodoItem");
+  emit("add", inputValue);
+};
 </script>
 
 <template>
   <div>
-    <input type="text" data-test="input" v-model="inputValue" />
+    <input
+      type="text"
+      data-test="input"
+      v-model="inputValue"
+      @keyup.enter="addTodoItem"
+    />
   </div>
 </template>
 

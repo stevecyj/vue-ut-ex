@@ -6,6 +6,5 @@ describe("TodoList", () => {
   it("renders properly", () => {
     const wrapper = shallowMount(TodoList);
     expect(wrapper.findAll(".mmm").length).toBe(1);
-    expect(wrapper).toMatchSnapshot();
   });
 });

@@ -22,3 +22,11 @@ it("Header input input值發生變化，數據應該跟著變", () => {
   const inputValue = wrapper.vm.inputValue;
   expect(inputValue).toBe("123");
 });
+
+it("Header input 框輸入 enter，無內容時無反應", () => {
+  const wrapper = shallowMount(Header);
+  const input = wrapper.find('[data-test="input"]');
+  input.setValue("");
+  input.trigger("keyup.enter");
+  expect(wrapper.emitted().add).toBeFalsy();
+});
