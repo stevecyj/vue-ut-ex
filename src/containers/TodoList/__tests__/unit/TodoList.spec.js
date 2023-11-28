@@ -3,8 +3,9 @@ import TodoList from "@/containers/TodoList/TodoList.vue";
 import { shallowMount } from "@vue/test-utils";
 
 describe("TodoList", () => {
-  it("renders properly", () => {
+  it("TodoItem 初始化時，undoList 為空 array", () => {
     const wrapper = shallowMount(TodoList);
-    expect(wrapper.findAll(".mmm").length).toBe(1);
+    const undoList = wrapper.vm.undoList
+    expect(undoList).toEqual([]);
   });
 });

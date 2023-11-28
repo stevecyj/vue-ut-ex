@@ -1,9 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import Header from "@/containers/TodoList/components/Header.vue";
 defineProps({});
 
 const count = ref(0);
+const undoList = reactive([]);
 </script>
 
 <template>
