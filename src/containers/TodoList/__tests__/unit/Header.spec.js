@@ -7,3 +7,10 @@ it("Header 包含 input 框", () => {
   const input = wrapper.find('[data-test="input"]');
   expect(input.exists()).toBe(true);
 });
+
+it("Header input init value ''", () => {
+  const wrapper = shallowMount(Header);
+  const inputValue = wrapper.vm.inputValue;
+  console.log("inputValue", inputValue);
+  expect(inputValue).toBe("");
+});
