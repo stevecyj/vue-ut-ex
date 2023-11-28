@@ -10,7 +10,7 @@ const addTodoItem = () => {
   // emit add event with inputValue
   if (!inputValue.value) return;
   console.log("addTodoItem");
-  emit("add", inputValue);
+  emit("add", inputValue.value);
   inputValue.value = "";
 };
 </script>
