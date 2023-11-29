@@ -17,7 +17,6 @@ it("Header 包含 input 框", () => {
 it("Header input init value ''", () => {
   const wrapper = shallowMount(Header);
   const inputValue = wrapper.vm.inputValue;
-  console.log("inputValue", inputValue);
   expect(inputValue).toBe("");
 });
 

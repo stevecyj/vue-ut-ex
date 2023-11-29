@@ -9,7 +9,6 @@ const emit = defineEmits(["add"]);
 const addTodoItem = () => {
   // emit add event with inputValue
   if (!inputValue.value || inputValue.value == "") return;
-  console.log("addTodoItem");
   emit("add", inputValue.value);
   inputValue.value = "";
 };
