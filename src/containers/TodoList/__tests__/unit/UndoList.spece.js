@@ -10,9 +10,10 @@ describe("UndoList.vue", () => {
         list: [],
       },
     });
-    // const countElem = findElementByDataTest(wrapper, "count");
-    // const listItems = findElementByDataTest(wrapper, "list-item");
-    // expect(countElem.text()).toEqual("0");
-    // expect(listItems.length).toEqual(0);
+    const countElem = findElementByDataTest(wrapper, "count");
+    const listItems = findElementByDataTest(wrapper, "item");
+    console.log("countElem =====> ", countElem);
+    expect(countElem[0].text()).toEqual("0");
+    expect(listItems.length).toEqual(0);
   });
 });
