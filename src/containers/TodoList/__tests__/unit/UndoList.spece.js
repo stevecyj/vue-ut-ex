@@ -16,4 +16,16 @@ describe("UndoList.vue", () => {
     expect(countElem[0].text()).toEqual("0");
     expect(listItems.length).toEqual(0);
   });
+
+  it("when UndoList has three items should count is three and contain three items", () => {
+    const wrapper = shallowMount(UndoList, {
+      propsData: {
+        list: ["item1", "item2", "item3"],
+      },
+    });
+    const countElem = findElementByDataTest(wrapper, "count");
+    const listItems = findElementByDataTest(wrapper, "item");
+    expect(countElem[0].text()).toEqual("3");
+    expect(listItems.length).toEqual(3);
+  });
 });
