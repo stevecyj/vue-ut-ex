@@ -14,6 +14,7 @@ const props = defineProps({
     <ul>
       <li v-for="(item, index) in list" :key="index" data-test="item">
         {{ item }}
+        <span data-test="delete-button">-</span>
       </li>
     </ul>
   </div>
