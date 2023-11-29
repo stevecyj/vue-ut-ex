@@ -28,6 +28,18 @@ describe("UndoList.vue", () => {
     const deleteButtons = findElementByDataTest(wrapper, "delete-button");
     expect(countElem[0].text()).toEqual("3");
     expect(listItems.length).toEqual(3);
-    expect(deleteButtons.length).toEqual(3)
+    expect(deleteButtons.length).toEqual(3);
+  });
+
+  it("when delete button in UndoList is clicked should emit delete event", () => {
+    const wrapper = shallowMount(UndoList, {
+      propsData: {
+        list: ["item1", "item2", "item3"],
+      },
+    });
+    const deleteButtons = findElementByDataTest(wrapper, "delete-button");
+    deleteButtons[1].trigger("click");
+    expect(wrapper.emitted().delete).toBeTruthy();
+    // expect(wrapper.emitted().delete[0][0]).toBe(1);
   });
 });
