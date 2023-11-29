@@ -1,7 +1,7 @@
 // import HelloWorld from "./HelloWorld.vue";
 import Header from "@/containers/TodoList/components/Header.vue";
 import { shallowMount } from "@vue/test-utils";
-import { findElementByDataTest } from "@/utils/findElementByDataTest.js";
+import { findElementByDataTest } from "@/utils";
 
 it("Header 樣式發生改變時提示", () => {
   const wrapper = shallowMount(Header);
