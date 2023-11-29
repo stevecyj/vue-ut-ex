@@ -40,6 +40,6 @@ describe("UndoList.vue", () => {
     const deleteButtons = findElementByDataTest(wrapper, "delete-button");
     deleteButtons[1].trigger("click");
     expect(wrapper.emitted().delete).toBeTruthy();
-    // expect(wrapper.emitted().delete[0][0]).toBe(1);
+    expect(wrapper.emitted().delete[0][0]).toBe(1);
   });
 });
