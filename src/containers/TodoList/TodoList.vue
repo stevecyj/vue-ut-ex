@@ -13,13 +13,10 @@ const addUndoItem = (inputValue) => {
 </script>
 
 <template>
-  <Header @add="addUndoItem" />
-  <UndoList :list="undoList" />
-  <ul>
-    <li v-for="(item, index) in undoList" :key="index">
-      {{ item }}
-    </li>
-  </ul>
+  <div>
+    <Header @add="addUndoItem" />
+    <UndoList :list="undoList" />
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

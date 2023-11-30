@@ -23,9 +23,9 @@ describe("TodoList", () => {
   it("when TodoList invokes UndoList should pass list parameter", () => {
     const wrapper = shallowMount(TodoList);
     const undoList = wrapper.findComponent(UndoList);
-    // const list = undoList.props("list");
+    const list = undoList.props("list");
     // console.log("undoList", undoList);
-    // expect(list).toBeTruthy();
+    expect(list).toBeTruthy();
 
     // const list = undoList.props("list");
     // wrapper.setData({ undoList: list });
