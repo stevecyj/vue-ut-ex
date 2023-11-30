@@ -60,3 +60,7 @@ module.exports = {
 ## todo
 
 * use blur event to trigger data update
+
+## BDD
+
+先寫 code ，再寫測試
