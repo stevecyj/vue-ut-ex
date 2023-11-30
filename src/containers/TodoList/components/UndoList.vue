@@ -22,9 +22,19 @@ const handleDelete = (index) => {
       <span data-test="count" class="count">{{ list.length }}</span>
     </div>
     <ul>
-      <li v-for="(item, index) in list" :key="index" data-test="item">
+      <li
+        v-for="(item, index) in list"
+        :key="index"
+        data-test="item"
+        class="item"
+      >
         {{ item }}
-        <span data-test="delete-button" @click="handleDelete(index)">-</span>
+        <span
+          data-test="delete-button"
+          @click="handleDelete(index)"
+          class="delete"
+          >-</span
+        >
       </li>
     </ul>
   </div>
@@ -55,5 +65,30 @@ const handleDelete = (index) => {
   border-radius: 10px;
   font-size: 12px;
   color: #000;
+}
+
+.item {
+  margin-bottom: 10px;
+  line-height: 32px;
+  font-size: 14px;
+  background: #fff;
+  border-left: 5px solid #629a9a;
+  border-radius: 3px;
+  text-indent: 10px;
+}
+.delete {
+  float: right;
+  display: block;
+  margin-top: 5px;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background: #e6e6e6;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #000;
+  text-indent: 0;
 }
 </style>
