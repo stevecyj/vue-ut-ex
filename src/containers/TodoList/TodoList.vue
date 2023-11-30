@@ -33,6 +33,16 @@ const resetStatus = () => {
   });
   undoList = tmpArr;
 };
+
+const changeItem = ({ value, index }) => {
+  let tmpArr = [...undoList];
+  tmpArr.forEach((item, i) => {
+    if (i === index) {
+      item.value = value;
+    }
+  });
+  undoList = tmpArr;
+};
 </script>
 
 <template>
@@ -43,6 +53,7 @@ const resetStatus = () => {
       @delete="handleItemDelete"
       @status="changeStatus"
       @reset="resetStatus"
+      @changeItem="changeItem"
     />
   </div>
 </template>

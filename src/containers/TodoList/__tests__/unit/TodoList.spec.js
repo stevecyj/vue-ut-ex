@@ -101,4 +101,23 @@ describe("TodoList", () => {
       { status: "span", value: 3 },
     ]);
   });
+
+  it('when invokes changeItem should UndoList content change', () => {
+    const wrapper = shallowMount(TodoList);
+    const undoList = wrapper.vm.undoList;
+    const list = [
+      { status: "span", value: 1 },
+      { status: "input", value: 2 },
+      { status: "span", value: 3 },
+    ];
+    list.forEach((item) => {
+      wrapper.vm.undoList.push(item);
+    });
+    wrapper.vm.changeItem({value: '456', index: 1});
+    expect(undoList).toEqual([
+      { status: "span", value: 1 },
+      { status: "input", value: '456' },
+      { status: "span", value: 3 },
+    ]);
+  });
 });
