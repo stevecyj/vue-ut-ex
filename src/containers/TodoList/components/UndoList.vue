@@ -45,6 +45,7 @@ const handleInputChange = (e, index) => {
         @click="changeStatus($event, index)"
       >
         <input
+          class="input"
           v-if="item.status === 'input'"
           :value="item.value"
           data-test="input"
@@ -111,5 +112,11 @@ const handleInputChange = (e, index) => {
   background: #e6e6e6;
   border-radius: 10px;
   text-indent: 0;
+}
+
+.input {
+  width: 460px;
+  height: 22px;
+  text-indent: 10px;
 }
 </style>
