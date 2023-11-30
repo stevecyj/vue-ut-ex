@@ -1,6 +1,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 import Header from "@/containers/TodoList/components/Header.vue";
+import UndoList from "@/containers/TodoList/components/UndoList.vue";
 defineProps({});
 
 const count = ref(0);
@@ -13,6 +14,7 @@ const addUndoItem = (inputValue) => {
 
 <template>
   <Header @add="addUndoItem" />
+  <UndoList :list="undoList" />
   <ul>
     <li v-for="(item, index) in undoList" :key="index">
       {{ item }}

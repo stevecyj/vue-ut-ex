@@ -1,5 +1,6 @@
 // import HelloWorld from "./HelloWorld.vue";
 import TodoList from "@/containers/TodoList/TodoList.vue";
+import UndoList from "@/containers/TodoList/components/UndoList.vue";
 import Header from "@/containers/TodoList/components/Header.vue";
 import { shallowMount } from "@vue/test-utils";
 
@@ -17,5 +18,17 @@ describe("TodoList", () => {
     header.vm.$emit("add", content);
     const undoList = wrapper.vm.undoList;
     expect(undoList).toEqual([content]);
+  });
+
+  it("when TodoList invokes UndoList should pass list parameter", () => {
+    const wrapper = shallowMount(TodoList);
+    const undoList = wrapper.findComponent(UndoList);
+    // const list = undoList.props("list");
+    // console.log("undoList", undoList);
+    // expect(list).toBeTruthy();
+
+    // const list = undoList.props("list");
+    // wrapper.setData({ undoList: list });
+    // expect(undoList.props("list")).toEqual(list);
   });
 });

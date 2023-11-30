@@ -11,7 +11,6 @@ const props = defineProps({
 const emit = defineEmits(["delete"]);
 
 const handleDelete = (index) => {
-  console.log(index);
   emit("delete", index);
 };
 </script>
