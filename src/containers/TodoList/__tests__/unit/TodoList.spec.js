@@ -24,11 +24,17 @@ describe("TodoList", () => {
     const wrapper = shallowMount(TodoList);
     const undoList = wrapper.findComponent(UndoList);
     const list = undoList.props("list");
-    // console.log("undoList", undoList);
     expect(list).toBeTruthy();
+  });
 
-    // const list = undoList.props("list");
-    // wrapper.setData({ undoList: list });
-    // expect(undoList.props("list")).toEqual(list);
+  it("when TodoList invokes handleDeleteItem should UndoList length -1", () => {
+    const wrapper = shallowMount(TodoList);
+    const undoList = wrapper.vm.undoList;
+    const list = [1, 2, 3];
+    list.forEach((item) => {
+      wrapper.vm.undoList.push(item);
+    });
+    wrapper.vm.handleItemDelete(1);
+    expect(undoList).toEqual([1, 3]);
   });
 });

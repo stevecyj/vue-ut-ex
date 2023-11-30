@@ -10,12 +10,16 @@ const undoList = reactive([]);
 const addUndoItem = (inputValue) => {
   undoList.push(inputValue);
 };
+
+const handleItemDelete = (index) => {
+  undoList.splice(index, 1);
+};
 </script>
 
 <template>
   <div>
     <Header @add="addUndoItem" />
-    <UndoList :list="undoList" />
+    <UndoList :list="undoList" @delete="handleItemDelete" />
   </div>
 </template>
 
