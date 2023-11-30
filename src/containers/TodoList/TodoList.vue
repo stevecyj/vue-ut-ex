@@ -13,6 +13,11 @@ const addUndoItem = (inputValue) => {
 const handleItemDelete = (index) => {
   undoList.splice(index, 1);
 };
+
+const changeStatus = (index) => {
+  let item = undoList[index];
+  item.status = item.status === "div" ? "input" : "div";
+};
 </script>
 
 <template>

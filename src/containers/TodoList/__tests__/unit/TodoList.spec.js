@@ -63,4 +63,23 @@ describe("TodoList", () => {
       { status: "div", value: 3 },
     ]);
   });
+
+  it("when invokes changeStatus should div in UndoList change to input", () => {
+    const wrapper = shallowMount(TodoList);
+    const undoList = wrapper.vm.undoList;
+    const list = [
+      { status: "div", value: 1 },
+      { status: "div", value: 2 },
+      { status: "div", value: 3 },
+    ];
+    list.forEach((item) => {
+      wrapper.vm.undoList.push(item);
+    });
+    wrapper.vm.changeStatus(1);
+    expect(undoList).toEqual([
+      { status: "div", value: 1 },
+      { status: "input", value: 2 },
+      { status: "div", value: 3 },
+    ]);
+  });
 });
