@@ -55,6 +55,8 @@ module.exports = {
 };
 ```
 
+## use jest
+
 ## todo
 
 * use blur event to trigger data update
