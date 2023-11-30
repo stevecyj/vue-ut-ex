@@ -13,11 +13,21 @@ describe("TodoList", () => {
 
   it("TodoList 監聽到 Header 的 add 事件時，undoList 增加一筆資料", () => {
     const wrapper = shallowMount(TodoList);
-    const header = wrapper.findComponent(Header);
-    const content = "123";
-    header.vm.$emit("add", content);
+    // 這裡是整合測試
+    // const header = wrapper.findComponent(Header);
+    // const content = "123";
+    // header.vm.$emit("add", content);
+    // const undoList = wrapper.vm.undoList;
+    // expect(undoList).toEqual([content]);
+
+    // 這裡是單元測試，when Header invokes add should TodoList undoList length +1
     const undoList = wrapper.vm.undoList;
-    expect(undoList).toEqual([content]);
+    const list = [1, 2, 3];
+    list.forEach((item) => {
+      wrapper.vm.undoList.push(item);
+    });
+    wrapper.vm.addUndoItem(4);
+    expect(undoList).toEqual([1, 2, 3, 4]);
   });
 
   it("when TodoList invokes UndoList should pass list parameter", () => {
