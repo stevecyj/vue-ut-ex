@@ -28,7 +28,7 @@ const handleDelete = (index) => {
         data-test="item"
         class="item"
       >
-        {{ item }}
+        {{ item.value }}
         <span
           data-test="delete-button"
           @click="handleDelete(index)"

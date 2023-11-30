@@ -22,12 +22,21 @@ describe("TodoList", () => {
 
     // 這裡是單元測試，when Header invokes add should TodoList undoList length +1
     const undoList = wrapper.vm.undoList;
-    const list = [1, 2, 3];
+    const list = [
+      { status: "div", value: 1 },
+      { status: "div", value: 2 },
+      { status: "div", value: 3 },
+    ];
     list.forEach((item) => {
       wrapper.vm.undoList.push(item);
     });
     wrapper.vm.addUndoItem(4);
-    expect(undoList).toEqual([1, 2, 3, 4]);
+    expect(undoList).toEqual([
+      { status: "div", value: 1 },
+      { status: "div", value: 2 },
+      { status: "div", value: 3 },
+      { status: "div", value: 4 },
+    ]);
   });
 
   it("when invokes UndoList should pass list parameter", () => {
@@ -40,11 +49,18 @@ describe("TodoList", () => {
   it("when invokes handleDeleteItem should UndoList length -1", () => {
     const wrapper = shallowMount(TodoList);
     const undoList = wrapper.vm.undoList;
-    const list = [1, 2, 3];
+    const list = [
+      { status: "div", value: 1 },
+      { status: "div", value: 2 },
+      { status: "div", value: 3 },
+    ];
     list.forEach((item) => {
       wrapper.vm.undoList.push(item);
     });
     wrapper.vm.handleItemDelete(1);
-    expect(undoList).toEqual([1, 3]);
+    expect(undoList).toEqual([
+      { status: "div", value: 1 },
+      { status: "div", value: 3 },
+    ]);
   });
 });

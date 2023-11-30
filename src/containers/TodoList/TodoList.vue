@@ -4,11 +4,10 @@ import Header from "@/containers/TodoList/components/Header.vue";
 import UndoList from "@/containers/TodoList/components/UndoList.vue";
 defineProps({});
 
-const count = ref(0);
 const undoList = reactive([]);
 
 const addUndoItem = (inputValue) => {
-  undoList.push(inputValue);
+  undoList.push({ status: "div", value: inputValue });
 };
 
 const handleItemDelete = (index) => {
