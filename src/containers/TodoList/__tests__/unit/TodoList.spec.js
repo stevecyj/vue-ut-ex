@@ -11,7 +11,7 @@ describe("TodoList", () => {
     expect(undoList).toEqual([]);
   });
 
-  it("TodoList 監聽到 Header 的 add 事件時，undoList 增加一筆資料", () => {
+  it("監聽到 Header 的 add 事件時，undoList 增加一筆資料", () => {
     const wrapper = shallowMount(TodoList);
     // 這裡是整合測試
     // const header = wrapper.findComponent(Header);
@@ -30,14 +30,14 @@ describe("TodoList", () => {
     expect(undoList).toEqual([1, 2, 3, 4]);
   });
 
-  it("when TodoList invokes UndoList should pass list parameter", () => {
+  it("when invokes UndoList should pass list parameter", () => {
     const wrapper = shallowMount(TodoList);
     const undoList = wrapper.findComponent(UndoList);
     const list = undoList.props("list");
     expect(list).toBeTruthy();
   });
 
-  it("when TodoList invokes handleDeleteItem should UndoList length -1", () => {
+  it("when invokes handleDeleteItem should UndoList length -1", () => {
     const wrapper = shallowMount(TodoList);
     const undoList = wrapper.vm.undoList;
     const list = [1, 2, 3];
