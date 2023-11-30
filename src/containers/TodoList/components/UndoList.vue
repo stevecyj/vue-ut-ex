@@ -8,10 +8,14 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["delete"]);
+const emit = defineEmits(["delete", "status"]);
 
 const handleDelete = (index) => {
   emit("delete", index);
+};
+
+const changeStatus = (index) => {
+  emit("status", index);
 };
 </script>
 
@@ -27,6 +31,7 @@ const handleDelete = (index) => {
         :key="index"
         data-test="item"
         class="item"
+        @click="changeStatus(index)"
       >
         {{ item.value }}
         <span

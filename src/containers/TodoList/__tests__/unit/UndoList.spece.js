@@ -49,4 +49,20 @@ describe("UndoList.vue", () => {
     expect(wrapper.emitted().delete).toBeTruthy();
     expect(wrapper.emitted().delete[0][0]).toBe(1);
   });
+
+  it("when input in UndoList is clicked should emit status event", () => {
+    const wrapper = shallowMount(UndoList, {
+      propsData: {
+        list: [
+          { status: "div", value: 1 },
+          { status: "div", value: 2 },
+          { status: "div", value: 3 },
+        ],
+      },
+    });
+    const listItems = findElementByDataTest(wrapper, "item");
+    listItems[1].trigger("click");
+    expect(wrapper.emitted().status).toBeTruthy();
+    expect(wrapper.emitted().status[0][0]).toBe(1);
+  });
 });
