@@ -82,4 +82,19 @@ describe("UndoList.vue", () => {
     expect(inputElem.length).toBe(1);
     expect(spanElem.length).toBe(2);
   });
+
+  it('when input blur should emit reset event', () => {
+    const wrapper = shallowMount(UndoList, {
+      propsData: {
+        list: [
+          { status: "input", value: 1 },
+          { status: "span", value: 2 },
+          { status: "span", value: 3 },
+        ],
+      },
+    });
+    const inputElem = findElementByDataTest(wrapper, "input");
+    inputElem[0].trigger('blur');
+    expect(wrapper.emitted().reset).toBeTruthy();
+  });
 });
