@@ -21,6 +21,6 @@ module.exports = {
   },
   plugins: ["vue"],
   rules: {
-    singleQuote: false,
+    singleQuote: off,
   },
 };
