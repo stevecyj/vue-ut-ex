@@ -16,8 +16,11 @@ const handleDelete = (index) => {
 </script>
 
 <template>
-  <div>
-    <div data-test="count" class="count">{{ list.length }}</div>
+  <div class="undolist">
+    <div class="title">
+      正在進行
+      <span data-test="count" class="count">{{ list.length }}</span>
+    </div>
     <ul>
       <li v-for="(item, index) in list" :key="index" data-test="item">
         {{ item }}
@@ -27,4 +30,30 @@ const handleDelete = (index) => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.undolist {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 10px 0;
+  line-height: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.count {
+  float: right;
+  display: block;
+  margin-top: 5px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background: #e6e6e6;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #000;
+}
+</style>
