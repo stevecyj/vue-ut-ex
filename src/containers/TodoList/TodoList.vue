@@ -25,6 +25,14 @@ const changeStatus = (index) => {
   });
   undoList = tmpArr;
 };
+
+const resetStatus = () => {
+  let tmpArr = [...undoList];
+  tmpArr.forEach((item) => {
+    item.status = "span";
+  });
+  undoList = tmpArr;
+};
 </script>
 
 <template>
@@ -34,6 +42,7 @@ const changeStatus = (index) => {
       :list="undoList"
       @delete="handleItemDelete"
       @status="changeStatus"
+      @reset="resetStatus"
     />
   </div>
 </template>

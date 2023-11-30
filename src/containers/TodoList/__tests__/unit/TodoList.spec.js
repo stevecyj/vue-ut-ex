@@ -82,4 +82,23 @@ describe("TodoList", () => {
       { status: "span", value: 3 },
     ]);
   });
+
+  it("when invokes resetStatus should status in UndoList change ", () => {
+    const wrapper = shallowMount(TodoList);
+    const undoList = wrapper.vm.undoList;
+    const list = [
+      { status: "span", value: 1 },
+      { status: "input", value: 2 },
+      { status: "span", value: 3 },
+    ];
+    list.forEach((item) => {
+      wrapper.vm.undoList.push(item);
+    });
+    wrapper.vm.resetStatus();
+    expect(undoList).toEqual([
+      { status: "span", value: 1 },
+      { status: "span", value: 2 },
+      { status: "span", value: 3 },
+    ]);
+  });
 });
