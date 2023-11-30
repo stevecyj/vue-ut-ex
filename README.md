@@ -54,3 +54,7 @@ module.exports = {
     },
 };
 ```
+
+## todo
+
+* use blur event to trigger data update
