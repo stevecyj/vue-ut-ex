@@ -109,13 +109,13 @@ describe("UndoList.vue", () => {
       },
     });
     const inputElem = findElementByDataTest(wrapper, "input");
-    inputElem[0].element.value = "123";
-    inputElem[0].trigger("change", { value: "123", index: 0 });
+    // inputElem[0].element.value = "123";
+    inputElem[0].trigger("change");
     console.log(wrapper.emitted().changeItem);
-    // expect(wrapper.emitted().changeItem).toBeTruthy();
-    // expect(wrapper.emitted().changeItem[0][0]).toEqual({
-    //   value: "123",
-    //   index: 0,
-    // });
+    expect(wrapper.emitted().changeItem).toBeTruthy();
+    expect(wrapper.emitted().changeItem[0][0]).toEqual({
+      value: "1",
+      index: 0,
+    });
   });
 });
