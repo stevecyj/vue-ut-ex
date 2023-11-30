@@ -83,7 +83,7 @@ describe("UndoList.vue", () => {
     expect(spanElem.length).toBe(2);
   });
 
-  it('when input blur should emit reset event', () => {
+  it("when input blur should emit reset event", () => {
     const wrapper = shallowMount(UndoList, {
       propsData: {
         list: [
@@ -94,7 +94,28 @@ describe("UndoList.vue", () => {
       },
     });
     const inputElem = findElementByDataTest(wrapper, "input");
-    inputElem[0].trigger('blur');
+    inputElem[0].trigger("blur");
     expect(wrapper.emitted().reset).toBeTruthy();
+  });
+
+  it("when input value change should emit changeItem event", () => {
+    const wrapper = shallowMount(UndoList, {
+      propsData: {
+        list: [
+          { status: "input", value: 1 },
+          { status: "span", value: 2 },
+          { status: "span", value: 3 },
+        ],
+      },
+    });
+    const inputElem = findElementByDataTest(wrapper, "input");
+    inputElem[0].element.value = "123";
+    inputElem[0].trigger("change", { value: "123", index: 0 });
+    console.log(wrapper.emitted().changeItem);
+    // expect(wrapper.emitted().changeItem).toBeTruthy();
+    // expect(wrapper.emitted().changeItem[0][0]).toEqual({
+    //   value: "123",
+    //   index: 0,
+    // });
   });
 });

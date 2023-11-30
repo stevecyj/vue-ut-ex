@@ -9,7 +9,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["delete", "status", "reset"]);
+const emit = defineEmits(["delete", "status", "reset", "changeItem"]);
 
 const handleDelete = (index) => {
   emit("delete", index);
@@ -21,6 +21,11 @@ const changeStatus = (index) => {
 
 const handleInputBlur = () => {
   emit("reset");
+};
+
+const handleInputChange = (value, index) => {
+  // console.log(value, index);
+  emit("changeItem", { value, index });
 };
 </script>
 
@@ -36,13 +41,14 @@ const handleInputBlur = () => {
         :key="index"
         data-test="item"
         class="item"
-        @click="changeStatus(index)"
+        @click="changeStatus(e, index)"
       >
         <input
           v-if="item.status === 'input'"
           :value="item.value"
           data-test="input"
           @blur="handleInputBlur"
+          @change="handleInputChange($event.target.value, index)"
         />
         <span v-else data-test="span">{{ item.value }}</span>
         <span
