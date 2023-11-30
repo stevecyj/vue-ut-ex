@@ -4,7 +4,7 @@ import Header from "@/containers/TodoList/components/Header.vue";
 import UndoList from "@/containers/TodoList/components/UndoList.vue";
 defineProps({});
 
-const undoList = reactive([]);
+let undoList = reactive([]);
 
 const addUndoItem = (inputValue) => {
   undoList.push({ status: "div", value: inputValue });
@@ -15,15 +15,26 @@ const handleItemDelete = (index) => {
 };
 
 const changeStatus = (index) => {
-  let item = undoList[index];
-  item.status = item.status === "div" ? "input" : "div";
+  let tmpArr = [...undoList];
+  tmpArr.forEach((item, i) => {
+    if (i === index) {
+      item.status = "input";
+    } else {
+      item.status = "span";
+    }
+  });
+  undoList = tmpArr;
 };
 </script>
 
 <template>
   <div>
     <Header @add="addUndoItem" />
-    <UndoList :list="undoList" @delete="handleItemDelete" />
+    <UndoList
+      :list="undoList"
+      @delete="handleItemDelete"
+      @status="changeStatus"
+    />
   </div>
 </template>
 

@@ -65,4 +65,20 @@ describe("UndoList.vue", () => {
     expect(wrapper.emitted().status).toBeTruthy();
     expect(wrapper.emitted().status[0][0]).toBe(1);
   });
+
+  it("when undoList item status is input, should render input, otherwise span", () => {
+    const wrapper = shallowMount(UndoList, {
+      propsData: {
+        list: [
+          { status: "input", value: 1 },
+          { status: "span", value: 2 },
+          { status: "span", value: 3 },
+        ],
+      },
+    });
+    const inputElem = findElementByDataTest(wrapper, "input");
+    const spanElem = findElementByDataTest(wrapper, "span");
+    expect(inputElem.length).toBe(1);
+    expect(spanElem.length).toBe(2);
+  });
 });

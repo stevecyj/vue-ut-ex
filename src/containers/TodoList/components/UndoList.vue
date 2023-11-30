@@ -33,7 +33,8 @@ const changeStatus = (index) => {
         class="item"
         @click="changeStatus(index)"
       >
-        {{ item.value }}
+        <input v-if="item.status === 'input'" data-test="input" />
+        <span v-else data-test="span">{{ item.value }}</span>
         <span
           data-test="delete-button"
           @click="handleDelete(index)"
