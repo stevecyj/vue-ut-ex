@@ -22,7 +22,7 @@ module.exports = {
     "!**/vendor/**",
   ],
   coveragePathIgnorePatterns: ["/node_modules/", "/tests/", "/vite.config.js"],
-  coverageReporters: ["text", "json-summary"],
+  coverageReporters: ["text", "lcov"],
   // Fix in order for vue-test-utils to work with Jest 29
   // https://test-utils.vuejs.org/migration/#test-runners-upgrade-notes
   testEnvironmentOptions: {
