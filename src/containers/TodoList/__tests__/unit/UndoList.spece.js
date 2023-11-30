@@ -19,7 +19,11 @@ describe("UndoList.vue", () => {
   it("when UndoList has three items should count is three and contain three items and delete buttons exist", () => {
     const wrapper = shallowMount(UndoList, {
       propsData: {
-        list: ["item1", "item2", "item3"],
+        list: [
+          { status: "div", value: 1 },
+          { status: "div", value: 2 },
+          { status: "div", value: 3 },
+        ],
       },
     });
     const countElem = findElementByDataTest(wrapper, "count");
@@ -33,7 +37,11 @@ describe("UndoList.vue", () => {
   it("when delete button in UndoList is clicked should emit delete event", () => {
     const wrapper = shallowMount(UndoList, {
       propsData: {
-        list: ["item1", "item2", "item3"],
+        list: [
+          { status: "div", value: 1 },
+          { status: "div", value: 2 },
+          { status: "div", value: 3 },
+        ],
       },
     });
     const deleteButtons = findElementByDataTest(wrapper, "delete-button");
