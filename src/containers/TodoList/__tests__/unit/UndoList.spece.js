@@ -78,6 +78,7 @@ describe("UndoList.vue", () => {
     });
     const inputElem = findElementByDataTest(wrapper, "input");
     const spanElem = findElementByDataTest(wrapper, "span");
+    expect(inputElem[0].element.value).toBe("1");
     expect(inputElem.length).toBe(1);
     expect(spanElem.length).toBe(2);
   });

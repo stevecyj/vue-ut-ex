@@ -33,7 +33,11 @@ const changeStatus = (index) => {
         class="item"
         @click="changeStatus(index)"
       >
-        <input v-if="item.status === 'input'" data-test="input" />
+        <input
+          v-if="item.status === 'input'"
+          :value="item.value"
+          data-test="input"
+        />
         <span v-else data-test="span">{{ item.value }}</span>
         <span
           data-test="delete-button"
