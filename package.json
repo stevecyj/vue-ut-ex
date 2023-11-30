@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "jest",
-    "test:update": "jest --updateSnapshot"
+    "test:update": "jest --updateSnapshot",
+    "test:cov": "jest --coverage"
   },
   "dependencies": {
     "vue": "^3.3.8"

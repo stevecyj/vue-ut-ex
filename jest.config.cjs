@@ -16,7 +16,12 @@ module.exports = {
   testEnvironmentOptions: {
     url: "http://localhost/",
   },
-  coveragePathIgnorePatterns: ["/node_modules/", "/tests/"],
+  collectCoverageFrom: [
+    "**/*.{js,vue}",
+    "!**/node_modules/**",
+    "!**/vendor/**",
+  ],
+  coveragePathIgnorePatterns: ["/node_modules/", "/tests/", "/vite.config.js"],
   coverageReporters: ["text", "json-summary"],
   // Fix in order for vue-test-utils to work with Jest 29
   // https://test-utils.vuejs.org/migration/#test-runners-upgrade-notes
