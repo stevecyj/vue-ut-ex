@@ -20,7 +20,7 @@ describe("TodoList", () => {
 
     const undoListWrapper = wrapper.findComponent(UndoList);
     const undoList = undoListWrapper.vm.list; // 在 UndoList 獲取 undoList 数据
-    console.log("undoList", undoList);
+    // console.log("undoList", undoList);
 
     expect(undoList.length).toBe(1);
     expect(undoList[0].value).toBe(content);
