@@ -21,7 +21,7 @@ const addTodoItem = () => {
       <input
         class="header-input"
         type="text"
-        data-test="input"
+        data-test="header-input"
         v-model="inputValue"
         @keyup.enter="addTodoItem"
         placeholder="Please input your todo item !"

@@ -66,3 +66,7 @@ module.exports = {
 * 先寫 code ，再寫測試
 * 改 integration test
 * 用戶行為是什麼樣子，哪些是重要的，哪些是不重要的
+  + 點擊 header 的時候，UndoList 會顯示
+  + header 和 UndoList 一起測試
+  + 用戶在 input 輸入內容，按下 enter，UndoList 會新增一個項目
+  + 用戶的行為過程稱為 story
