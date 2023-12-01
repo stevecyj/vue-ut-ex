@@ -63,4 +63,5 @@ module.exports = {
 
 ## BDD
 
-先寫 code ，再寫測試
+* 先寫 code ，再寫測試
+* 改 integration test
