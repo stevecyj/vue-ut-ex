@@ -65,3 +65,4 @@ module.exports = {
 
 * 先寫 code ，再寫測試
 * 改 integration test
+* 用戶行為是什麼樣子，哪些是重要的，哪些是不重要的
