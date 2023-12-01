@@ -10,7 +10,7 @@ describe("TodoList", () => {
       3. As a user, I expect the list to include a new item with the content I entered.
   `, () => {
     const wrapper = mount(TodoList);
-    const undoList = wrapper.vm.undoList; // 在 TodoList 獲取 undoList 数据
+    //const undoList = wrapper.vm.undoList; // 在 TodoList 獲取 undoList 数据
 
     const inputElem = findElementByDataTest(wrapper, "header-input")[0];
     const content = "JOJO Lee";
@@ -18,6 +18,11 @@ describe("TodoList", () => {
     inputElem.trigger("change");
     inputElem.trigger("keyup.enter");
 
+    const undoListWrapper = wrapper.findComponent(UndoList);
+    const undoList = undoListWrapper.vm.list; // 在 UndoList 獲取 undoList 数据
+    console.log("undoList", undoList);
+
     expect(undoList.length).toBe(1);
+    expect(undoList[0].value).toBe(content);
   });
 });
