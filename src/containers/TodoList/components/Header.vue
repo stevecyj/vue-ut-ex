@@ -1,16 +1,26 @@
 <script setup>
-import { ref, defineEmits } from "vue";
+import { ref, defineEmits, computed } from "vue";
+import { useStore } from "vuex";
 
+const store = useStore();
 defineProps({});
-const inputValue = ref("");
-const count = ref(0);
+
+// const inputValue = ref("");
+const inputValue = computed(() => {
+  return store.state.inputValue;
+});
+
 const emit = defineEmits(["add"]);
+
+const changeInputValue = (value) => {
+  store.commit("changeInputValue", value);
+};
 
 const addTodoItem = () => {
   // emit add event with inputValue
   if (!inputValue.value || inputValue.value == "") return;
-  emit("add", inputValue.value);
-  inputValue.value = "";
+  emit("add", inputValue);
+  changeInputValue("");
 };
 </script>
 
@@ -22,7 +32,8 @@ const addTodoItem = () => {
         class="header-input"
         type="text"
         data-test="header-input"
-        v-model="inputValue"
+        :value="inputValue"
+        @input="(e) => changeInputValue(e.target.value)"
         @keyup.enter="addTodoItem"
         placeholder="Please input your todo item !"
       />
