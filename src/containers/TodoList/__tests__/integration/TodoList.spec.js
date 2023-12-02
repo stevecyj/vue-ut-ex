@@ -2,6 +2,7 @@ import { mount } from "@vue/test-utils";
 import { findElementByDataTest } from "@/utils";
 import TodoList from "@/containers/TodoList/TodoList.vue";
 import UndoList from "@/containers/TodoList/components/UndoList.vue";
+import store from "@/store/headerStoreVuex";
 
 describe("TodoList", () => {
   it(`
@@ -9,7 +10,11 @@ describe("TodoList", () => {
       2. As a user, when I click "enter," the list should add an item with the content I entered.
       3. As a user, I expect the list to include a new item with the content I entered.
   `, () => {
-    const wrapper = mount(TodoList);
+    const wrapper = mount(TodoList, {
+      global: {
+        plugins: [store],
+      },
+    });
     //const undoList = wrapper.vm.undoList; // 在 TodoList 獲取 undoList 数据
 
     const inputElem = findElementByDataTest(wrapper, "header-input")[0];
