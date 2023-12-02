@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineEmits, computed } from "vue";
+import { ref, defineEmits, computed, nextTick } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
@@ -7,7 +7,7 @@ defineProps({});
 
 // const inputValue = ref("");
 const inputValue = computed(() => {
-  return store.state.inputValue;
+  return store.getters.inputValue;
 });
 
 const emit = defineEmits(["add"]);
@@ -18,7 +18,7 @@ const changeInputValue = (value) => {
 
 const addTodoItem = () => {
   // emit add event with inputValue
-  if (!inputValue.value || inputValue.value == "") return;
+  if (!inputValue || inputValue == "") return;
   emit("add", inputValue);
   changeInputValue("");
 };

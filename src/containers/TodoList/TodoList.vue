@@ -1,47 +1,36 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, computed } from "vue";
 import Header from "@/containers/TodoList/components/Header.vue";
 import UndoList from "@/containers/TodoList/components/UndoList.vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+
 defineProps({});
 
-let undoList = reactive([]);
+// let undoList = reactive([]);
+const undoList = computed(() => {
+  return store.getters.undoList;
+});
 
 const addUndoItem = (inputValue) => {
-  undoList.push({ status: "div", value: inputValue });
+  store.commit("addUndoItem", inputValue);
 };
 
 const handleItemDelete = (index) => {
-  undoList.splice(index, 1);
+  store.commit("deleteItem", index);
 };
 
 const changeStatus = (index) => {
-  let tmpArr = [...undoList];
-  tmpArr.forEach((item, i) => {
-    if (i === index) {
-      item.status = "input";
-    } else {
-      item.status = "span";
-    }
-  });
-  undoList = tmpArr;
+  store.commit("changeStatus", index);
 };
 
 const resetStatus = () => {
-  let tmpArr = [...undoList];
-  tmpArr.forEach((item) => {
-    item.status = "span";
-  });
-  undoList = tmpArr;
+  store.commit("resetStatus");
 };
 
 const changeItem = ({ value, index }) => {
-  let tmpArr = [...undoList];
-  tmpArr.forEach((item, i) => {
-    if (i === index) {
-      item.value = value;
-    }
-  });
-  undoList = tmpArr;
+  store.commit("changeItem", { value, index });
 };
 </script>
 
