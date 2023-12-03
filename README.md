@@ -70,3 +70,8 @@ module.exports = {
   + header 和 UndoList 一起測試
   + 用戶在 input 輸入內容，按下 enter，UndoList 會新增一個項目
   + 用戶的行為過程稱為 story
+
+## 非同步測試
+
+* 前端只關注在接收到正確、錯誤的數據後，如何處理
+  + 不關注數據是否正確
