@@ -25,7 +25,6 @@ const handleInputBlur = () => {
 
 const handleInputChange = (e, index) => {
   const value = e.target.value;
-  // console.log(value, index);
   emit("changeItem", { value, index });
 };
 </script>

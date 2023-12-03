@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed } from "vue";
+import { ref, reactive, computed, onMounted } from "vue";
 import Header from "@/containers/TodoList/components/Header.vue";
 import UndoList from "@/containers/TodoList/components/UndoList.vue";
 import { useStore } from "vuex";
@@ -32,6 +32,10 @@ const resetStatus = () => {
 const changeItem = ({ value, index }) => {
   store.commit("changeItem", { value, index });
 };
+
+onMounted(() => {
+  store.dispatch("getInitList");
+});
 </script>
 
 <template>
