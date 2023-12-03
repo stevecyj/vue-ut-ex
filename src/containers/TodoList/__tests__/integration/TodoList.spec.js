@@ -40,7 +40,13 @@ describe("TodoList", () => {
       },
     });
 
-    const undoList = wrapper.vm.undoList;
-    expect(undoList.length).toBe(3);
+    wrapper.vm.$nextTick((done) => {
+      const items = findElementByDataTest(wrapper, "item");
+      expect(items.length).toBe(3);
+      done();
+    });
+
+    // const undoList = wrapper.vm.undoList;
+    // expect(undoList.length).toBe(3);
   });
 });
