@@ -91,3 +91,8 @@ module.exports = {
 │           ├── integraton
 │           └── unit
 ```
+
+## 測試 api 數據
+
+* 定時爬取 api 數據，存到本地
+* 用本地數據測試
