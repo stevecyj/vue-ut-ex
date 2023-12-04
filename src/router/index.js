@@ -6,6 +6,15 @@ const routes = [
     name: "TodoList",
     component: () => import("@/containers/TodoList/TodoList.vue"),
   },
+  {
+    path: "/404",
+    name: "NotFound",
+    component: () => import("@/containers/NotFoundPage/NotFoundPage.vue"),
+  },
+  {
+    path: "/:catchAll(.*)",
+    redirect: "/404",
+  },
 ];
 
 const router = createRouter({
