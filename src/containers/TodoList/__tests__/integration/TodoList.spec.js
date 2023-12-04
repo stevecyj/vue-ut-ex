@@ -33,14 +33,14 @@ describe("TodoList", () => {
   it(`
       1. 用戶進入頁面時，請求遠端數據
       2. 列表項目展示遠端數據
-  `, async () => {
+  `, (done) => {
     const wrapper = mount(TodoList, {
       global: {
         plugins: [store],
       },
     });
 
-    wrapper.vm.$nextTick((done) => {
+    wrapper.vm.$nextTick(() => {
       const items = findElementByDataTest(wrapper, "item");
       expect(items.length).toBe(3);
       done();
