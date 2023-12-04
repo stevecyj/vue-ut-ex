@@ -75,3 +75,19 @@ module.exports = {
 
 * 前端只關注在接收到正確、錯誤的數據後，如何處理
   + 不關注數據是否正確
+
+## containers 檔案目錄結構
+
+```
+.
+├── containers(views)
+│   └── TodoList
+│       ├── TodoList.vue
+│       ├── components
+│       │   ├── UndoList.vue
+│       │   └── Header.vue
+│       ├── __mocks__
+│       └── __tests__
+│           ├── integraton
+│           └── unit
+```
