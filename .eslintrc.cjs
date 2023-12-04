@@ -21,6 +21,7 @@ module.exports = {
   },
   plugins: ["vue"],
   rules: {
-    singleQuote: off,
+    quotes: "off",
+    "comma-dangle": ["error", "always-multiline"],
   },
 };
